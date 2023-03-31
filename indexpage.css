@@ -1,0 +1,153 @@
+.w3-bar-item:hover{
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.w3-xlarge:hover{
+    background-color: white;
+}
+@media (min-width: 280px){
+    #div1{
+    height:auto;
+}
+#div2{
+    height: auto;
+    background-color:white;
+}
+#h3{
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    margin-top: 7rem;
+}
+#h1{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: black;
+}
+
+#wel{
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-top: 6rem;
+}
+#wel_name{
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+#wel_percent{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 4rem;
+}
+}
+@media (min-width:768px){
+#div1{
+    height:100vh;
+}
+#div2{
+    height: 100vh;
+    background-color:white;
+    border-bottom-left-radius: 5550px 5550px;
+}
+#wel_name{
+    font-size: 2.8rem;
+    font-weight: bolder;
+    padding: 0.5;
+}
+
+#wel_percent{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 4rem;
+}
+#lecture-table{
+    font-size: 2rem;
+    width: 100%;
+}
+td{
+    font-size: 1.5rem;
+    width: 4%;
+}
+
+}
+@media (min-width:1024px){
+#div1{
+    height:70vh;
+}
+#div2{
+    height: 100vh;
+    background-color:white;
+    border-bottom-left-radius: 1550px 1550px;
+}
+#h3{
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: black;
+    margin-top: 17rem;
+    margin-left: 1rem;
+}
+#h1{
+    font-size: 4rem;
+    font-weight: bolder;
+    color: black;
+    margin-left: 1rem;
+}
+#div3{
+    margin-left: 15rem;
+    width: 70%;
+}
+#div4{
+    margin-left: 15rem;
+}
+#wel{
+    font-size: 3rem;
+    font-weight: bolder;
+    margin-top: 10rem;
+}
+#wel_percent{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 4rem;
+}
+#lecture-table{
+    font-size: 2rem;
+    width: 100%;
+}
+td{
+    font-size: 11.5rem;
+    width: 5%;
+}
+}
+
+
+
+
+
+
+
+
+#wel{
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-top: 6rem;
+}
+#wel_name{
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+#wel_percent{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 4rem;
+}
+#lecture-table{
+    font-size: 1.8rem;
+    width: 70%;
+    margin-right: 0.5rem;
+}
+td{
+    font-size: 1.2rem;
+    width: 3%;
+}
