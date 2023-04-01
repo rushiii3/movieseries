@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+
+    <style>
+      html {
+  scroll-behavior: smooth;
+}
+      
+      #nav {
+        color: #66fcf1;
+      }
+      #downloadlink
+      {
+        padding-inline: 2rem;
+        padding-block: 1rem;
+        text-decoration: none;
+        font-size: 2rem;
+        border: 2px solid white;
+        color: white;
+        margin-block: 2rem;
+      }
+      #downloadlink:hover
+      {
+        background-color: white;
+        color: black;
+      }
+    </style>
+  </head>
+  <body style="background-color: #1f2823">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Movies00</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li >
+              <a href="#" id="nav">Home</a>
+            </li>
+            <li style="background-color: #c3073f"><a href="#" id="nav">Movies</a></li>
+            <li ><a href="#" id="nav">Series</a></li>
+            <li><a href="#" id="nav">Search</a></li>
+            <li><a href="#" id="nav">Request us</a></li>
+            <li><a href="#" id="nav">About us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<?php
+include "connect.php";
+$id = 1;
+?>
+
+
+    <div class="container">
+      <div class="row mx-auto">
+        <?php
+        $query = "SELECT * FROM movies WHERE movie_id = $id";
+        $result = mysqli_query($con,$query);
+        if(mysqli_num_rows($result)==1)
+        {
+            while($row=mysqli_fetch_assoc($result))
+            {
+                
+            
+        
+        ?>
+        <div class="col-lg-6" style="height: 60rem;">
+            <img src="<?php echo($row['poster_link']);?>" width="100%" height="100%" >
+        </div>
+        <div class="col-lg-6" style="color: white;">
+            <h1 style="text-align: center;margin-block:2rem ;">
+                <?php echo($row['movie_title']); ?>
+            </h1>
+            <div style="margin-block:2rem ;">
+              <h5>
+                Description
+            </h5>
+            <h4>
+                <?php echo($row['movie_descrip']); ?>
+            </h4>
+            </div>
+            
+            <h4 style="margin-block:2rem ;">
+                Release date : <b><?php echo($row['release_date']); ?></b>
+            </h4>
+
+            <h4 style="margin-block:2rem ;">
+                Runtime : <b><?php echo($row['runtime']); ?></b>
+            </h4>
+
+            <p style="text-align: center;margin-block:2rem ;">
+              <a class="btn btn-danger" href="#wo" role="button" style="margin-block: 1rem;font-size: 2rem;">Watch Online</a>
+              <br>
+                <a class="btn btn-danger" href="#dn" role="button" style="margin-block: 1rem;font-size: 2rem;">Download</a>
+            </p>
+              
+        </div>
+      </div>
+    </div>
+
+  <div class="container" style="padding: 1rem;margin-block: 2rem;">
+    <div class="col-lg-12">
+      <h1 style="color: white;" id="wo" class="wo">
+        Watch Online
+      </h1>
+    </div>   
+    <div class="embed-responsive embed-responsive-16by9 col-lg-12" style="margin-block: 2rem;">
+      <iframe class="embed-responsive-item" src="<?php echo($row['wlink']);?>" allowfullscreen></iframe>
+    </div>
+  </div>    
+    
+
+  <div class="container" style="padding: 1rem;margin-block: 2rem;">
+    <div class="col-lg-12">
+      <h1 style="color: white;" id="dn" class="dn">
+        Download
+      </h1>
+    </div>
+    
+    <div class="col-lg-12" style="text-align: center;margin-block: 5rem;">
+      <a href="<?php echo($row['dlink']);?>" target="_blank" id="downloadlink">Download Movie</a>
+    </div>
+   
+    
+  </div>    
+  <?php
+            }
+        }
+        ?>
+  </body>
+</html>
