@@ -8,93 +8,9 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="movieseries.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-     @media (min-width: 0px) {
-        #maincol {
-          margin: 1rem;
-          padding: 0.2rem;
-          background-color: white;
-        }
-        #img {
-          width: 100%;
-          height: 23rem;
-          border: 1px solid white;
-        }
-        #title {
-            color: #c3073f;
-          padding: 1rem;
-          font-size: 1.4rem;
-        }
-      }
-      @media (min-width: 576px) {
-        #maincol {
-          margin: 1rem;
-          padding: 0.2rem;
-          background-color: white;
-        }
-        #img {
-          width: 100%;
-          height: 35rem;
-          border: 1px solid white;
-        }
-        #title {
-            color: #c3073f;
-          padding: 1rem;
-          font-size: 1.4rem;
-        }
-      }
-      @media (min-width: 768px) {
-        #maincol {
-          margin: 1rem;
-          padding: 1rem;
-          background-color: white;
-        }
-        #img {
-          width: 100%;
-          height: 35rem;
-          border: 1px solid white;
-        }
-        #title {
-            color: #c3073f;
-          padding: 1rem;
-          font-size: 1.4rem;
-        }
-      }
-      @media (min-width: 992px) {
-        #maincol {
-          margin: 1.5rem;
-          padding: 0.5rem;
-          background-color: white;
-          color: #c3073f;
-        }
-        #img {
-          width: 100%;
-          height: 30rem;
-          border: 1px solid white;
-        }
-        #title {
-          color: #c3073f;
-          padding: 1rem;
-          font-size: 1.6rem;
-        }
-      }
-      #nav {
-        color: #66fcf1;
-      }
-      #card {
-        text-decoration: none;
-      }
-      #maincol:hover{
-        background-color: #c3073f;
-        box-shadow: 5px 10px #66fcf1;
-      }
-      #maincol:hover #title{
-        color: #66fcf1;
-      }
-
-    </style>
   </head>
   <body style="background-color: #1f2823">
     <nav class="navbar navbar-inverse">

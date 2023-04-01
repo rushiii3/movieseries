@@ -8,47 +8,10 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="movieseries.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-
-
-    <style>
-      html {
-  scroll-behavior: smooth;
-}
-      @media (min-width: 0px) {
-        
-      }
-      @media (min-width: 576px) {
-        
-        
-      }
-      @media (min-width: 768px) {
-        
-      }
-      @media (min-width: 992px) {
-        
-      }
-      #nav {
-        color: #66fcf1;
-      }
-      #downloadlink
-      {
-        padding-inline: 2rem;
-        padding-block: 1rem;
-        text-decoration: none;
-        font-size: 2rem;
-        border: 2px solid white;
-        color: white;
-        margin-block: 2rem;
-      }
-      #downloadlink:hover
-      {
-        background-color: white;
-        color: black;
-      }
-    </style>
   </head>
   <body style="background-color: #1f2823">
     <nav class="navbar navbar-inverse">
