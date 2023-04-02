@@ -45,7 +45,7 @@
     </nav>
 <?php
 include "connect.php";
-$id = 1;
+$id = $_GET['id'];
 ?>
 
 
@@ -63,7 +63,7 @@ $id = 1;
         
         ?>
         <div class="col-lg-6" style="height: 60rem;">
-            <img src="<?php echo($row['poster_link']);?>" width="100%" height="100%" >
+            <img src="<?php echo($row['poster_link']);?>" width="100%" height="100%" alt="<?php echo($row['movie_title']); ?>">
         </div>
         <div class="col-lg-6" style="color: white;">
             <h1 style="text-align: center;margin-block:2rem ;">
