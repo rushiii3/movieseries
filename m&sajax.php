@@ -9,8 +9,33 @@ if(!empty($_POST['srch']))
     {
         while($row=mysqli_fetch_assoc($result))
         {
-            
-            echo($row['movie_title']);
+            ?>
+            <div
+          class="col-lg-2 col-md-3 col-sm-5 col-xs-5 text-center"
+          id="maincol"
+        >
+          <a href="
+          <?php
+          $category = $row['category'];
+          $id = $row['movie_id'];
+          if($category=='m')
+          {
+            echo("movielay2.php?id=$id");
+          }
+          else{
+            echo("serieslay2.php?id=$id");
+          }
+          ?>
+          " id="card">
+            <img
+              src="<?php echo($row['poster_link']); ?>"
+              id="img"
+              alt="<?php echo($row['movie_title']); ?>"
+            />
+            <p id="title"><?php echo($row['movie_title']); ?></p>
+          </a>
+        </div>
+        <?php
         }
     }
 }

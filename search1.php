@@ -50,19 +50,11 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" >
             <input type="text" id="searchbar" placeholder="Serach your movies and series" oninput="search()" style="width: 100%;height: 4rem;padding: 1rem;border-radius: 10px;">
             </div>
-        <div
-          class="col-lg-2 col-md-3 col-sm-5 col-xs-5 text-center"
-          id="maincol"
-        >
-          <a href="" id="card">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNu4Tl4B1o364xYpjErHfGD8EAEG6_efbA2P3JiVEoQc6G4cJM"
-              id="img"
-              alt="..."
-            />
-            <p id="title">The Cook</p>
-          </a>
-        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row" style="margin-left: 1rem; margin-right: 1rem" id="show">
+        
       </div>
     </div>
 
