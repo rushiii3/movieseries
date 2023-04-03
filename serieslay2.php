@@ -47,7 +47,7 @@
 <?php
 include "connect.php";
 $id = $_GET['id'];
-
+echo($id);
 $query = "SELECT * FROM shows WHERE show_id = $id";
 $result = mysqli_query($con,$query); 
 if(mysqli_num_rows($result)==1)
@@ -128,7 +128,7 @@ if(mysqli_num_rows($result)==1)
     </div>
    
     <div class="embed-responsive embed-responsive-16by9 col-lg-12" style="margin-block: 2rem;">
-      <iframe class="embed-responsive-item" src=" " id="iframe" allowfullscreen></iframe>
+      <iframe class="embed-responsive-item" src=" " id="iframe" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
     </div>
   </div>    
     

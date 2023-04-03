@@ -47,7 +47,8 @@
 
     <div class="container">
         <div class="row" style="padding: 2rem;margin-inline: auto;color: white;margin-block: 20rem;" id="roww">
-            <form>
+            <form id="contact-form">
+              <input type="hidden" name="contact_number">
                 <div class="form-group row">
                   <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
                   <div class="col-sm-10">
@@ -68,14 +69,39 @@
                   </div>
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <button type="submit" class="btn" style="background-color: #c3073f;padding-inline: 3rem;">Submit</button>
+                    <button type="submit" class="btn" id="contact-submit" style="background-color: #c3073f;padding-inline: 3rem;">Submit</button>
                   </div>
                 </div>
               </form>
           
         </div>
     </div>
-    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('d7C7s9pAjlq0FmowJ');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_07pj63d', 'template_3wpbrx8', this)
+                    .then(function() {
+                        alert('Thankyouuu for your response.');
+                        document.getElementById("inputName3").value="";
+                        document.getElementById("inputEmail3").value="";
+                        document.getElementById("inputSuggest3").value="";
+                    }, function(error) {
+                        alert('FAILED...', error);
+                    });
+            });
+        }
+    </script>
   
   </body>
 </html>

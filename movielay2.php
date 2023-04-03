@@ -45,7 +45,8 @@
     </nav>
 <?php
 include "connect.php";
-$id = $_GET['id'];
+//$id = $_GET['id'];
+$id=1;
 ?>
 
 
@@ -103,7 +104,10 @@ $id = $_GET['id'];
       </h1>
     </div>   
     <div class="embed-responsive embed-responsive-16by9 col-lg-12" style="margin-block: 2rem;">
-      <iframe class="embed-responsive-item" src="<?php echo($row['wlink']);?>" allowfullscreen></iframe>
+      <iframe class="embed-responsive-item" src="
+      <?php echo($row['wlink']);?>
+      
+      " allowfullscreen ></iframe>
     </div>
   </div>    
     
