@@ -14,6 +14,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   </head>
   <body style="background-color: #1f2823">
+  <div class="page-loader">
+      <img src="https://i.pinimg.com/originals/b8/71/76/b8717641f46cdfdced2c86e984f07c11.gif" style="height: 100vh;width: 100%;">
+    </div>    
+    <script>
+      $(window).on('load',function(){
+	setTimeout(function(){ // allowing 3 secs to fade out loader
+	$('.page-loader').fadeOut('slow');
+	},2000);
+});
+    </script>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -47,7 +57,7 @@
 <?php
 include "connect.php";
 $id = $_GET['id'];
-
+echo($id);
 $query = "SELECT * FROM shows WHERE show_id = $id";
 $result = mysqli_query($con,$query); 
 if(mysqli_num_rows($result)==1)
@@ -128,7 +138,7 @@ if(mysqli_num_rows($result)==1)
     </div>
    
     <div class="embed-responsive embed-responsive-16by9 col-lg-12" style="margin-block: 2rem;">
-      <iframe class="embed-responsive-item" src=" " id="iframe" allowfullscreen></iframe>
+      <iframe class="embed-responsive-item" src=" " id="iframe" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
     </div>
   </div>    
     

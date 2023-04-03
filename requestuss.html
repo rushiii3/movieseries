@@ -12,8 +12,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    
   </head>
   <body style="background-color: #1f2823">
+    <div class="page-loader">
+      <img src="https://i.pinimg.com/originals/b8/71/76/b8717641f46cdfdced2c86e984f07c11.gif" style="height: 100vh;width: 100%;">
+    </div>    
+    <script>
+      $(window).on('load',function(){
+	setTimeout(function(){ // allowing 3 secs to fade out loader
+	$('.page-loader').fadeOut('slow');
+	},2000);
+});
+    </script>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -47,7 +58,8 @@
 
     <div class="container">
         <div class="row" style="padding: 2rem;margin-inline: auto;color: white;margin-block: 20rem;" id="roww">
-            <form>
+            <form id="contact-form">
+              <input type="hidden" name="contact_number">
                 <div class="form-group row">
                   <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
                   <div class="col-sm-10">
@@ -68,14 +80,39 @@
                   </div>
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <button type="submit" class="btn" style="background-color: #c3073f;padding-inline: 3rem;">Submit</button>
+                    <button type="submit" class="btn" id="contact-submit" style="background-color: #c3073f;padding-inline: 3rem;">Submit</button>
                   </div>
                 </div>
               </form>
           
         </div>
     </div>
-    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('d7C7s9pAjlq0FmowJ');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_07pj63d', 'template_3wpbrx8', this)
+                    .then(function() {
+                        alert('Thankyouuu for your response.');
+                        document.getElementById("inputName3").value="";
+                        document.getElementById("inputEmail3").value="";
+                        document.getElementById("inputSuggest3").value="";
+                    }, function(error) {
+                        alert('FAILED...', error);
+                    });
+            });
+        }
+    </script>
   
   </body>
 </html>
