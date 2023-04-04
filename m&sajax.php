@@ -76,4 +76,40 @@ if(mysqli_num_rows($result) > 0){
     } 
 }
 }
+
+if(!empty($_POST['inpt']))
+{
+  $title = $_POST['inpt'];
+  $sql = "SELECT show_id FROM shows WHERE show_title LIKE '%$title%'";
+  $result = mysqli_query($con,$sql);
+  if(mysqli_num_rows($result)>0)
+  {
+    while($row = mysqli_fetch_assoc($result))
+    {
+      echo($row['show_id']);
+    }
+  }
+  else{
+    echo("NOT FOUND");
+  }
+}
+if(!empty($_POST['seasons']))
+{
+  $no = $_POST['seasons'];
+  for($i=1;$i<=$no;$i++)
+  {
+    ?>
+    <div class="row" style="padding:1rem;">
+            <div class="col-lg-6 ">
+                <h3> ENTER  SEASONS NUMBER</h3>
+            </div>
+            <div class="col-lg-6 " style="padding:0.5rem;">
+                <input type="text" name="sn<?php echo($i);?>"  style="padding:0.5rem;width:100%;color:black;" >
+            </div>
+        </div>
+        <?php
+   
+
+  }
+}
 ?>
