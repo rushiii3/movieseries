@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Current Location</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+<link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+<link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+<script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+<script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<style>
+	body { margin: 0; padding: 0; }
+	#map { width: 70%; height: 100svh;}
+  .current {
+  height: 69px;
+  width: 47px;
+  background-image: url(https://api.geoapify.com/v1/icon/?type=awesome&color=%2372a2d4&scaleFactor=2&size=x-large&icon=home&apiKey=bd093c3a0c704ab2bef05be9d08ea9ec);
+  background-size: contain;
+  cursor: pointer;
+}
+.school {
+  height: 69px;
+  width: 47px;
+  background-image: url(https://api.geoapify.com/v1/icon/?type=awesome&color=%2372a2d4&scaleFactor=2&size=x-large&icon=university&apiKey=bd093c3a0c704ab2bef05be9d08ea9ec);
+  background-size: contain;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+    
+    
+<div id="map"></div>
+<div id="results"> </div>
+<script>
+const key = 'bd093c3a0c704ab2bef05be9d08ea9ec';
+const map = new maplibregl.Map({
+    container: 'map',
+    style: 'https://maps.geoapify.com/v1/styles/osm-carto/style.json?apiKey='+key, // stylesheet location
+    center: [74.5, 19], // starting position [lng, lat]
+    zoom: 8,
+    pitch: 30 // starting zoom
+});
+
+
+  $.getJSON("https://api.geoapify.com/v2/places?categories=commercial&filter=circle:72.924678266422,19.13692481729663,1000&bias=proximity:72.924678266422,19.13692481729663&limit=20&apiKey="+key+"", function(data){
+    $.each(data.features, function (value) {
+      console.log(data.features[value].properties.name);
+      console.log(data.features[value].geometry.coordinates[0], data.features[value].geometry.coordinates[1]);
+      
+      
+    var airportIcon1 = document.createElement('div');
+            airportIcon1.classList.add("school");
+
+var airportPopup1 = new maplibregl.Popup({
+    anchor: 'bottom',
+    offset: [0, -64] // height - shadow
+  })
+  .setText(data.features[value].properties.name);
+
+var airport1 = new maplibregl.Marker(airportIcon1, {
+    anchor: 'bottom',
+    offset: [0, 6]
+  })
+  .setLngLat([data.features[value].geometry.coordinates[0], data.features[value].geometry.coordinates[1]])
+  .setPopup(airportPopup1)
+  .addTo(map);
+
+
+
+    });
+});
+const center = [72.924678266422, 19.13692481729663];
+
+const radius = 1000; // kilometer
+      var options = {
+        steps: 64,
+        units: 'kilometers'
+      };
+      var circle = turf.circle(center, radius, options);
+      
+            map.setCenter(center);
+      // Add a fill layer with some transparency.
+      map.addLayer({
+        id: "location-radius",
+        type: "fill",
+        source: {
+          type: "geojson",
+          data: circle
+        },
+        paint: {
+          "fill-color": "#8CCFFF",
+          "fill-opacity": 0.5,
+        }
+      });
+
+      // Add a line layer to draw the circle outline
+      map.addLayer({
+        id: "location-radius-outline",
+        type: "line",
+        source: {
+          type: "geojson",
+          data: circle
+        },
+        paint: {
+          "line-color": "#0094ff",
+          "line-width": 3
+        }
+      });
+      
+</script>
+</body>
+</html>

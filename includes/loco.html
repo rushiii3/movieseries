@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <style>
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#main{
+    position: relative;
+    overflow: hidden;
+}
+#page{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f1f1;
+}
+#page1{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f1f1;
+}
+#page2{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f1f1;
+}
+#page3{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f1f1;
+}
+canvas{
+    position: relative;
+    z-index: 9;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+#loop{
+    display: flex;
+    position: absolute;
+    top: 30%;
+    height: 25%;
+    width: 100%;
+    font-size: 100px;
+    white-space: nowrap;
+    font-family: gilroy;
+}
+#loop>h1{
+    font-weight: 400;
+    animation-name: anim;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#loop>h1>span{
+    -webkit-text-stroke: 1.2px #000;
+    color: transparent;
+    font-weight: 500;
+}
+@keyframes anim{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+#nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 7%;
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    padding: 0px 30px;
+}
+#nav>h3{
+    font-family: gilroy;
+    font-weight: 400;
+    font-size: 22px;
+}
+#nav>button{
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
+#page>h3{
+    position: absolute;
+    top: 55%;
+    font-family: gilroy;
+    font-weight: 400;
+    color: #7c7c7c;
+    left: 5%;
+}
+#page>h4{
+    position: absolute;
+    top: 62%;
+    left: 25%;
+    font-family: gilroy;
+    font-weight: 500;
+}
+#page1>#right-text{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+#page1>#right-text>h3{
+    font-weight: 400;
+    color: #7c7c7c;
+}
+#page1>#right-text>h1{
+    line-height: 1.5;
+    font-size: 50px;
+}
+#page1>#left-text{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    text-align: end;
+}
+#page1>#left-text>h1{
+    font-size: 50px;
+    line-height: 1.5;
+}
+#page1>#left-text>h3{
+    color: #7c7c7c;
+    font-weight: 400;
+}
+#page2>#text1{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+#page2>#text1>h3{
+    color: #7c7c7c;
+    font-weight: 400;
+}
+#page2>#text1>h1{
+    font-size: 60px;
+    line-height: 1.5;
+}
+#page2>#text2{
+    position: absolute;
+    top: 55%;
+    right: 10%;
+    text-align: end;
+}
+#page2>#text2>p{
+    color: #7c7c7c;
+    font-weight: 400;
+}
+#page3>#text3{
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    text-align: end;
+}
+#page3>#text3>h3{
+    color: #7c7c7c;
+    font-weight: 400;
+}
+#page3>#text3>h1{
+    font-size: 70px;
+
+}
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <h3><b>CYBER</b>FICTION*</h3>
+        <button>APRIL,2023</button>
+    </div>
+    <div id="main">
+        <div id="page">
+            <div id="loop">
+                <h1><b>CYBER</b>FICTION IS THE <b><i>REAL</i></b> <span>STORY</span> IN THE <span><i>METAVERSE.</i></span></h1>
+                <h1><b>CYBER</b>FICTION IS THE <b><i>REAL</i></b> <span>STORY</span> IN THE <span><i>METAVERSE.</i></span></h1>
+                <h1><b>CYBER</b>FICTION IS THE <b><i>REAL</i></b> <span>STORY</span> IN THE <span><i>METAVERSE.</i></span></h1>
+            </div>
+            <h3>CYBERFICTION AIMS TO BE A DECENTRALIZED COMMUNITY THAT CAN <br> CREATE NEW VALUES AND PROFITS THROUGH PLAY IN THE VIRTUAL <br> WORLD.</h3>
+            <h4>...SCROLL TO READ</h4>
+            <canvas></canvas>
+        </div>
+        <div id="page1">
+            <div id="right-text">
+                <h3>CYBERFICTION / KEY WORD</h3>
+                <h1>HAVE FUN
+                    <br>
+                    LET'S PLAY
+                    <br>
+                    JUST BE TOGETHER</h1>
+            </div>
+            <div id="left-text">
+                <h1>MAKE A STORY
+                    <br>
+                    TAKE A CHANCE
+                    <br>
+                    BUILD AND OWNED</h1>
+                    <h3>..AND MAINTAIN GOOD HUMANITY</h3>
+            </div>
+        </div>
+        <div id="page2">
+            <div id="text1">
+                <h3>CYBERFICTION / HAVE FUN</h3>
+                <h1>LET'S
+                    <br>
+                    HAVE FUN
+                    <br>
+                    TOGETHER</h1>
+            </div>
+            <div id="text2">
+                <p>LET'S HAVE A BLAST! LET'S JUST THROW AWAY AGE, GENDER, REGION, <br> STATUS, ETC., DON'T COMPETE, DON'T FIGHT, COOPERATE AND SHARE <br> WITH EACH OTHER AND ENJOY IT TOGETHER! SO THAT YOU CAN STAND <br> THERE IN THE NOT-TOO-DISTANT FUTURE AND DREAM OF ANOTHER NEW <br> FUTURE</p>
+            </div>
+        </div>
+        <div id="page3">
+            <div id="text3">
+                <h3>CYBERFICTION / PLAYGROUND</h3>
+                <h1>
+
+CYBERFIELD
+<br>
+IS OUR
+<br>
+PLAYGROUND
+                </h1>
+               
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+</body>
+<script>
+function locomotive() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector("#main"),
+    smooth: true ,
+  });
+  locoScroll.on("scroll", ScrollTrigger.update);
+
+  ScrollTrigger.scrollerProxy("#main", {
+    scrollTop(value) {
+      return arguments.length
+        ? locoScroll.scrollTo(value, 0, 0)
+        : locoScroll.scroll.instance.scroll.y;
+    },
+
+    getBoundingClientRect() {
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    },
+
+    pinType: document.querySelector("#main").style.transform
+      ? "transform"
+      : "fixed",
+  });
+  ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+  ScrollTrigger.refresh();
+}
+locomotive();
+
+
+const canvas = document.querySelector("canvas");
+const context = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+
+window.addEventListener("resize", function () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  render();
+});
+
+function files(index) {
+  var data = `
+  ./frame/0001.jpg
+  ./frame/0002.jpg
+  ./frame/0003.jpg
+  ./frame/0004.jpg
+  ./frame/0005.jpg
+  ./frame/0006.jpg
+  ./frame/0007.jpg
+  ./frame/0008.jpg
+  ./frame/0009.jpg
+  ./frame/0010.jpg
+  ./frame/0011.jpg
+./frame/0012.jpg
+./frame/0013.jpg
+./frame/0014.jpg
+./frame/0015.jpg
+./frame/0016.jpg
+./frame/0017.jpg
+./frame/0018.jpg
+./frame/0019.jpg
+./frame/0020.jpg
+./frame/0021.jpg
+./frame/0022.jpg
+./frame/0023.jpg
+./frame/0024.jpg
+./frame/0025.jpg
+./frame/0026.jpg
+./frame/0027.jpg
+./frame/0028.jpg
+./frame/0029.jpg
+./frame/0030.jpg
+./frame/0031.jpg
+./frame/0032.jpg
+./frame/0033.jpg
+./frame/0034.jpg
+./frame/0035.jpg
+./frame/0036.jpg
+./frame/0037.jpg
+./frame/0038.jpg
+./frame/0039.jpg
+./frame/0040.jpg
+./frame/0041.jpg
+./frame/0042.jpg
+./frame/0043.jpg
+./frame/0044.jpg
+./frame/0045.jpg
+./frame/0046.jpg
+./frame/0047.jpg
+./frame/0048.jpg
+./frame/0049.jpg
+./frame/0050.jpg
+./frame/0051.jpg
+./frame/0052.jpg
+./frame/0053.jpg
+./frame/0054.jpg
+./frame/0055.jpg
+./frame/0056.jpg
+./frame/0057.jpg
+./frame/0058.jpg
+./frame/0059.jpg
+./frame/0060.jpg
+./frame/0061.jpg
+./frame/0062.jpg
+./frame/0063.jpg
+./frame/0064.jpg
+./frame/0065.jpg
+./frame/0066.jpg
+./frame/0067.jpg
+./frame/0068.jpg
+./frame/0069.jpg
+./frame/0070.jpg
+./frame/0071.jpg
+./frame/0072.jpg
+./frame/0073.jpg
+./frame/0074.jpg
+./frame/0075.jpg
+./frame/0076.jpg
+./frame/0077.jpg
+./frame/0078.jpg
+./frame/0079.jpg
+./frame/0080.jpg
+./frame/0081.jpg
+./frame/0082.jpg
+./frame/0083.jpg
+./frame/0084.jpg
+./frame/0085.jpg
+./frame/0086.jpg
+./frame/0087.jpg
+./frame/0088.jpg
+./frame/0089.jpg
+./frame/0090.jpg
+./frame/0091.jpg
+./frame/0092.jpg
+./frame/0093.jpg
+./frame/0094.jpg
+./frame/0095.jpg
+./frame/0096.jpg
+./frame/0097.jpg
+./frame/0098.jpg
+./frame/0099.jpg
+./frame/0100.jpg
+./frame/0101.jpg
+./frame/0102.jpg
+./frame/0103.jpg
+./frame/0104.jpg
+./frame/0105.jpg
+./frame/0106.jpg
+./frame/0107.jpg
+./frame/0108.jpg
+./frame/0109.jpg
+./frame/0110.jpg
+./frame/0111.jpg
+./frame/0112.jpg
+./frame/0113.jpg
+./frame/0114.jpg
+./frame/0115.jpg
+./frame/0116.jpg
+./frame/0117.jpg
+./frame/0118.jpg
+./frame/0119.jpg
+./frame/0120.jpg
+./frame/0121.jpg
+./frame/0122.jpg
+./frame/0123.jpg
+./frame/0124.jpg
+./frame/0125.jpg
+./frame/0126.jpg
+./frame/0127.jpg
+./frame/0128.jpg
+./frame/0129.jpg
+./frame/0130.jpg
+./frame/0131.jpg
+./frame/0132.jpg
+./frame/0133.jpg
+./frame/0134.jpg
+./frame/0135.jpg
+./frame/0136.jpg
+./frame/0137.jpg
+./frame/0138.jpg
+./frame/0139.jpg
+./frame/0140.jpg
+./frame/0141.jpg
+./frame/0142.jpg
+./frame/0143.jpg
+./frame/0144.jpg
+./frame/0145.jpg
+./frame/0146.jpg
+./frame/0147.jpg
+./frame/0148.jpg
+./frame/0149.jpg
+./frame/0150.jpg
+./frame/0151.jpg
+./frame/0152.jpg
+./frame/0153.jpg
+./frame/0154.jpg
+./frame/0155.jpg
+./frame/0156.jpg
+./frame/0157.jpg
+./frame/0158.jpg
+./frame/0159.jpg
+./frame/0160.jpg
+./frame/0161.jpg
+./frame/0162.jpg
+./frame/0163.jpg
+./frame/0164.jpg
+./frame/0165.jpg
+./frame/0166.jpg
+./frame/0167.jpg
+./frame/0168.jpg
+./frame/0169.jpg
+./frame/0170.jpg
+./frame/0171.jpg
+./frame/0172.jpg
+./frame/0173.jpg
+./frame/0174.jpg
+./frame/0175.jpg
+./frame/0176.jpg
+./frame/0177.jpg
+./frame/0178.jpg
+./frame/0179.jpg
+./frame/0180.jpg
+./frame/0181.jpg
+./frame/0182.jpg
+./frame/0183.jpg
+./frame/0184.jpg
+./frame/0185.jpg
+./frame/0186.jpg
+./frame/0187.jpg
+./frame/0188.jpg
+./frame/0189.jpg
+./frame/0190.jpg
+./frame/0191.jpg
+./frame/0192.jpg
+./frame/0193.jpg
+./frame/0194.jpg
+./frame/0195.jpg
+./frame/0196.jpg
+./frame/0197.jpg
+./frame/0198.jpg
+./frame/0199.jpg
+./frame/0200.jpg
+./frame/0201.jpg
+./frame/0202.jpg
+./frame/0203.jpg
+./frame/0204.jpg
+./frame/0205.jpg
+./frame/0206.jpg
+./frame/0207.jpg
+./frame/0208.jpg
+./frame/0209.jpg
+./frame/0210.jpg
+./frame/0211.jpg
+./frame/0212.jpg
+./frame/0213.jpg
+./frame/0214.jpg
+./frame/0215.jpg
+./frame/0216.jpg
+./frame/0217.jpg
+./frame/0218.jpg
+./frame/0219.jpg
+./frame/0220.jpg
+./frame/0221.jpg
+./frame/0222.jpg
+./frame/0223.jpg
+./frame/0224.jpg
+./frame/0225.jpg
+./frame/0226.jpg
+./frame/0227.jpg
+./frame/0228.jpg
+./frame/0229.jpg
+./frame/0230.jpg
+./frame/0231.jpg
+./frame/0232.jpg
+./frame/0233.jpg
+./frame/0234.jpg
+./frame/0235.jpg
+./frame/0236.jpg
+./frame/0237.jpg
+./frame/0238.jpg
+./frame/0239.jpg
+./frame/0240.jpg
+./frame/0241.jpg
+./frame/0242.jpg
+./frame/0243.jpg
+./frame/0244.jpg
+./frame/0245.jpg
+./frame/0246.jpg
+./frame/0247.jpg
+./frame/0248.jpg
+./frame/0249.jpg
+./frame/0250.jpg
+./frame/0251.jpg
+./frame/0252.jpg
+./frame/0253.jpg
+./frame/0254.jpg
+./frame/0255.jpg
+./frame/0256.jpg
+./frame/0257.jpg
+./frame/0258.jpg
+./frame/0259.jpg
+./frame/0260.jpg
+./frame/0261.jpg
+./frame/0262.jpg
+./frame/0263.jpg
+./frame/0264.jpg
+./frame/0265.jpg
+./frame/0266.jpg
+./frame/0267.jpg
+./frame/0268.jpg
+./frame/0269.jpg
+./frame/0270.jpg
+./frame/0271.jpg
+./frame/0272.jpg
+./frame/0273.jpg
+./frame/0274.jpg
+./frame/0275.jpg
+./frame/0276.jpg
+./frame/0277.jpg
+./frame/0278.jpg
+./frame/0279.jpg
+./frame/0280.jpg
+./frame/0281.jpg
+./frame/0282.jpg
+./frame/0283.jpg
+./frame/0284.jpg
+./frame/0285.jpg
+./frame/0286.jpg
+./frame/0287.jpg
+./frame/0288.jpg
+./frame/0289.jpg
+./frame/0290.jpg
+./frame/0291.jpg
+./frame/0292.jpg
+./frame/0293.jpg
+./frame/0294.jpg
+./frame/0295.jpg
+./frame/0296.jpg
+./frame/0297.jpg
+./frame/0298.jpg
+./frame/0299.jpg
+./frame/0300.jpg
+./frame/0301.jpg
+./frame/0302.jpg
+./frame/0303.jpg
+./frame/0304.jpg
+./frame/0305.jpg
+./frame/0306.jpg
+./frame/0307.jpg
+./frame/0308.jpg
+./frame/0309.jpg
+./frame/0310.jpg
+./frame/0311.jpg
+./frame/0312.jpg
+./frame/0313.jpg
+./frame/0314.jpg
+./frame/0315.jpg
+./frame/0316.jpg
+./frame/0317.jpg
+./frame/0318.jpg
+./frame/0319.jpg
+./frame/0320.jpg
+./frame/0321.jpg
+./frame/0322.jpg
+./frame/0323.jpg
+./frame/0324.jpg
+./frame/0325.jpg
+./frame/0326.jpg
+./frame/0327.jpg
+./frame/0328.jpg
+./frame/0329.jpg
+./frame/0330.jpg
+./frame/0331.jpg
+./frame/0332.jpg
+./frame/0333.jpg
+./frame/0334.jpg
+./frame/0335.jpg
+./frame/0336.jpg
+./frame/0337.jpg
+./frame/0338.jpg
+./frame/0339.jpg
+./frame/0340.jpg
+./frame/0341.jpg
+./frame/0342.jpg
+./frame/0343.jpg
+./frame/0344.jpg
+./frame/0345.jpg
+./frame/0346.jpg
+./frame/0347.jpg
+./frame/0348.jpg
+./frame/0349.jpg
+./frame/0350.jpg
+./frame/0351.jpg
+./frame/0352.jpg
+./frame/0353.jpg
+./frame/0354.jpg
+./frame/0355.jpg
+./frame/0356.jpg
+./frame/0357.jpg
+./frame/0358.jpg
+./frame/0359.jpg
+./frame/0360.jpg
+./frame/0361.jpg
+./frame/0362.jpg
+./frame/0363.jpg
+./frame/0364.jpg
+./frame/0365.jpg
+./frame/0366.jpg
+./frame/0367.jpg
+./frame/0368.jpg
+./frame/0369.jpg
+./frame/0370.jpg
+./frame/0371.jpg
+./frame/0372.jpg
+./frame/0373.jpg
+./frame/0374.jpg
+./frame/0375.jpg
+./frame/0376.jpg
+./frame/0377.jpg
+./frame/0378.jpg
+./frame/0379.jpg
+./frame/0380.jpg
+./frame/0381.jpg
+./frame/0382.jpg
+./frame/0383.jpg
+./frame/0384.jpg
+./frame/0385.jpg
+./frame/0386.jpg
+./frame/0387.jpg
+./frame/0388.jpg
+./frame/0389.jpg
+./frame/0390.jpg
+./frame/0391.jpg
+./frame/0392.jpg
+./frame/0393.jpg
+./frame/0394.jpg
+./frame/0395.jpg
+./frame/0396.jpg
+./frame/0397.jpg
+./frame/0398.jpg
+./frame/0399.jpg
+./frame/0400.jpg
+./frame/0401.jpg
+./frame/0402.jpg
+./frame/0403.jpg
+./frame/0404.jpg
+./frame/0405.jpg
+./frame/0406.jpg
+./frame/0407.jpg
+./frame/0408.jpg
+./frame/0409.jpg
+./frame/0410.jpg
+./frame/0411.jpg
+./frame/0412.jpg
+./frame/0413.jpg
+./frame/0414.jpg
+./frame/0415.jpg
+./frame/0416.jpg
+./frame/0417.jpg
+./frame/0418.jpg
+./frame/0419.jpg
+./frame/0420.jpg
+./frame/0421.jpg
+./frame/0422.jpg
+./frame/0423.jpg
+./frame/0424.jpg
+./frame/0425.jpg
+./frame/0426.jpg
+./frame/0427.jpg
+./frame/0428.jpg
+./frame/0429.jpg
+./frame/0430.jpg
+./frame/0431.jpg
+./frame/0432.jpg
+./frame/0433.jpg
+./frame/0434.jpg
+./frame/0435.jpg
+./frame/0436.jpg
+./frame/0437.jpg
+./frame/0438.jpg
+./frame/0439.jpg
+./frame/0440.jpg
+./frame/0441.jpg
+./frame/0442.jpg
+./frame/0443.jpg
+./frame/0444.jpg
+./frame/0445.jpg
+./frame/0446.jpg
+./frame/0447.jpg
+./frame/0448.jpg
+./frame/0449.jpg
+./frame/0450.jpg
+./frame/0451.jpg
+./frame/0452.jpg
+./frame/0453.jpg
+./frame/0454.jpg
+./frame/0455.jpg
+./frame/0456.jpg
+./frame/0457.jpg
+./frame/0458.jpg
+./frame/0459.jpg
+./frame/0460.jpg
+./frame/0461.jpg
+./frame/0462.jpg
+./frame/0463.jpg
+./frame/0464.jpg
+./frame/0465.jpg
+./frame/0466.jpg
+./frame/0467.jpg
+./frame/0468.jpg
+./frame/0469.jpg
+./frame/0470.jpg
+./frame/0471.jpg
+./frame/0472.jpg
+./frame/0473.jpg
+./frame/0474.jpg
+./frame/0475.jpg
+./frame/0476.jpg
+./frame/0477.jpg
+./frame/0478.jpg
+./frame/0479.jpg
+./frame/0480.jpg
+./frame/0481.jpg
+./frame/0482.jpg
+./frame/0483.jpg
+./frame/0484.jpg
+./frame/0485.jpg
+./frame/0486.jpg
+./frame/0487.jpg
+./frame/0488.jpg
+./frame/0489.jpg
+./frame/0490.jpg
+./frame/0491.jpg
+./frame/0492.jpg
+./frame/0493.jpg
+./frame/0494.jpg
+./frame/0495.jpg
+./frame/0496.jpg
+./frame/0497.jpg
+./frame/0498.jpg
+./frame/0499.jpg
+./frame/0500.jpg
+
+
+ `;
+  return data.split("\n")[index];
+}
+
+const frameCount = 500;
+
+const images = [];
+const imageSeq = {
+  frame: 1,
+};
+
+for (let i = 0; i < frameCount; i++) {
+  const img = new Image();
+  img.src = files(i);
+  images.push(img);
+}
+
+gsap.to(imageSeq, {
+  frame: frameCount - 1,
+  snap: "frame",
+  ease: `none`,
+  scrollTrigger: {
+    scrub: 0.15,
+    trigger: `#page>canvas`,
+    start: `top top`,
+    end: `600% top`,
+    scroller: `#main`,
+  },
+  onUpdate: render,
+});
+
+images[1].onload = render;
+
+function render() {
+  scaleImage(images[imageSeq.frame], context);
+}
+
+function scaleImage(img, ctx) {
+  var canvas = ctx.canvas;
+  var hRatio = canvas.width / img.width;
+  var vRatio = canvas.height / img.height;
+  var ratio = Math.max(hRatio, vRatio);
+  var centerShift_x = (canvas.width - img.width * ratio) / 2;
+  var centerShift_y = (canvas.height - img.height * ratio) / 2;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(
+    img,
+    0,
+    0,
+    img.width,
+    img.height,
+    centerShift_x,
+    centerShift_y,
+    img.width * ratio,
+    img.height * ratio
+  );
+}
+ScrollTrigger.create({
+  trigger: "#page>canvas",
+  pin: true,
+  // markers:true,
+  scroller: `#main`,
+  start: `top top`,
+  end: `600% top`,
+});
+
+
+
+gsap.to("#page1",{
+  scrollTrigger:{
+    trigger:`#page1`,
+    start:`top top`,
+    end:`bottom top`,
+    pin:true,
+    scroller:`#main`
+  }
+})
+gsap.to("#page2",{
+  scrollTrigger:{
+    trigger:`#page2`,
+    start:`top top`,
+    end:`bottom top`,
+    pin:true,
+    scroller:`#main`
+  }
+})
+gsap.to("#page3",{
+  scrollTrigger:{
+    trigger:`#page3`,
+    start:`top top`,
+    end:`bottom top`,
+    pin:true,
+    scroller:`#main`
+  }
+})
+
+</script>
+</html>

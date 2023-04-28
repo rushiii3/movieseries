@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Current Location</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+<link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+<link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+<script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+<script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+<style>
+	body { margin: 0; padding: 0; }
+	#map { width: 100%; height: 80vh;}
+  .airport {
+  height: 69px;
+  width: 47px;
+  background-image: url(https://api.geoapify.com/v1/icon/?type=awesome&color=%2372a2d4&scaleFactor=2&size=x-large&icon=home&apiKey=bd093c3a0c704ab2bef05be9d08ea9ec);
+  background-size: contain;
+  cursor: pointer;
+}
+.airport1 {
+  height: 69px;
+  width: 47px;
+  background-image: url(https://api.geoapify.com/v1/icon/?type=awesome&color=%2372a2d4&scaleFactor=2&size=x-large&icon=university&apiKey=bd093c3a0c704ab2bef05be9d08ea9ec);
+  background-size: contain;
+  cursor: pointer;
+}
+.airport2 {
+  height: 69px;
+  width: 47px;
+  background-image: url(https://api.geoapify.com/v1/icon/?type=awesome&color=%2372a2d4&scaleFactor=2&size=x-large&icon=university&apiKey=bd093c3a0c704ab2bef05be9d08ea9ec);
+  background-size: contain;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+    
+    
+<div id="map"></div>
+<p id="demo">hello</p>
+<button onclick="get_location()">GET LOCATION </button>
+<script>
+    
+const successCallback = (position) => {
+  console.log(position);
+};
+
+const errorCallback = (error) => {
+  console.log(error);
+};
+
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+const key = 'bd093c3a0c704ab2bef05be9d08ea9ec';
+const map = new maplibregl.Map({
+    container: 'map',
+    style: 'https://maps.geoapify.com/v1/styles/osm-carto/style.json?apiKey='+key, // stylesheet location
+    center: [74.5, 19], // starting position [lng, lat]
+    zoom: 8,
+    pitch: 30 // starting zoom
+});
+map.addControl(new maplibregl.NavigationControl());
+function get_location() {
+    var geolocation = null;
+    var c_pos = null;
+
+    if (window.navigator && window.navigator.geolocation) {
+        geolocation = window.navigator.geolocation;
+
+        var positionOptions = {
+            enableHighAccuracy: true,
+            timeout: 10 * 1000, // 10 seconds
+            maximumAge: 30 * 1000 // 30 seconds
+        };
+
+        function success(position) {
+            console.log(position);
+            c_pos = position.coords;
+            
+
+
+            var airportIcon = document.createElement('div');
+            airportIcon.classList.add("airport");
+
+var airportPopup = new maplibregl.Popup({
+    anchor: 'bottom',
+    offset: [0, -64] // height - shadow
+  })
+  .setText('Current Location');
+
+var airport = new maplibregl.Marker(airportIcon, {
+    anchor: 'bottom',
+    offset: [0, 6]
+  })
+  .setLngLat([c_pos.longitude, c_pos.latitude])
+  .setPopup(airportPopup)
+  .addTo(map);
+            const center = [c_pos.longitude, c_pos.latitude];
+            fetch("https://api.geoapify.com/v2/places?categories=education.school&filter=circle:" + c_pos.longitude + ','  + c_pos.latitude + ",1000&bias=proximity:" + c_pos.longitude + ','  + c_pos.latitude + "&limit=20&apiKey="+key)
+  .then(response => response.json())
+  .then(result => {
+    var airportIcon1 = document.createElement('div');
+            airportIcon1.classList.add("airport1");
+
+var airportPopup1 = new maplibregl.Popup({
+    anchor: 'bottom',
+    offset: [0, -64] // height - shadow
+  })
+  .setText(result.features[0].properties.name);
+
+var airport1 = new maplibregl.Marker(airportIcon1, {
+    anchor: 'bottom',
+    offset: [0, 6]
+  })
+  .setLngLat([result.features[0].geometry.coordinates[0], result.features[0].geometry.coordinates[1]])
+  .setPopup(airportPopup1)
+  .addTo(map);
+  var airportIcon2 = document.createElement('div');
+            airportIcon2.classList.add("airport2");
+
+var airportPopup2 = new maplibregl.Popup({
+    anchor: 'bottom',
+    offset: [0, -64] // height - shadow
+  })
+  .setText(result.features[1].properties.name);
+
+var airport2 = new maplibregl.Marker(airportIcon2, {
+    anchor: 'bottom',
+    offset: [0, 6]
+  })
+  .setLngLat([result.features[1].geometry.coordinates[0], result.features[1].geometry.coordinates[1]])
+  .setPopup(airportPopup2)
+  .addTo(map);
+
+    
+    console.log(result);
+        console.log(result.features[0].properties.name);
+        
+        
+
+
+
+  })
+      const radius = 1; // kilometer
+      var options = {
+        steps: 64,
+        units: 'kilometers'
+      };
+      var circle = turf.circle(center, radius, options);
+      
+            map.setCenter(center);
+            map.setZoom(13);
+      
+      
+      // Add a fill layer with some transparency.
+      map.addLayer({
+        id: "location-radius",
+        type: "fill",
+        source: {
+          type: "geojson",
+          data: circle
+        },
+        paint: {
+          "fill-color": "#8CCFFF",
+          "fill-opacity": 0.5,
+        }
+      });
+
+      // Add a line layer to draw the circle outline
+      map.addLayer({
+        id: "location-radius-outline",
+        type: "line",
+        source: {
+          type: "geojson",
+          data: circle
+        },
+        paint: {
+          "line-color": "#0094ff",
+          "line-width": 3
+        }
+      });
+      console.log();
+      
+
+        }
+        
+        function error(positionError) {
+            console.log(positionError.message);
+        }
+
+        if (geolocation) {
+            geolocation.getCurrentPosition(success, error, positionOptions);
+        }
+
+    } else {
+        alert("Getting Geolocation is prevented on your browser");
+    }
+
+    return c_pos;
+}
+
+
+    
+  
+</script>
+</body>
+</html>

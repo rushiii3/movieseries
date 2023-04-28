@@ -112,4 +112,122 @@ if(!empty($_POST['seasons']))
 
   }
 }
+if(!empty($_POST['showid']))
+{
+  $id = $_POST['showid'];
+  $sql = "SELECT * FROM seasons WHERE show_id = $id";
+  $result = mysqli_query($con,$sql);
+  if(mysqli_num_rows($result)>0)
+  {
+    while($row=mysqli_fetch_assoc($result))
+    {
+      echo $row['season_no'];
+    }
+  }
+}
+
+if(!empty($_POST['shh']))
+{
+  $title = $_POST['shh'];
+  $sql = "SELECT show_id FROM shows WHERE show_title LIKE '%$title%'";
+  $result = mysqli_query($con,$sql);
+  if(mysqli_num_rows($result)==1)
+  {
+    while($row = mysqli_fetch_assoc($result))
+    {
+      ?>
+
+<div class="row" style="padding:1rem;">
+            <div class="col-lg-6 ">
+                <h3> Show ID</h3>
+            </div>
+            <div class="col-lg-6 " style="padding:0.5rem;">
+                <input type="text" name="showid" value="<?php  echo($row['show_id']); ?>"  style="padding:0.5rem;width:100%;color:black;" readonly>
+            </div>
+        </div>
+
+        <?php
+      $id = $row['show_id'];
+      $sql1 = "SELECT * FROM seasons WHERE show_id = $id";
+      $result2=mysqli_query($con,$sql1);
+        ?>
+        <div class="row" style="padding:1rem;">
+        <div class="col-lg-6 ">
+            <h3> Select SEASON</h3>
+        </div>
+        <div class="col-lg-6 " style="padding:0.5rem;">
+            <select style="padding:0.5rem;width:100%;color:black;" name="seasonid" id="seasonsw"> 
+            <option selected value="">Select Season</option>
+            <?php
+            if(mysqli_num_rows($result2)>0)
+      {  
+        while($row=mysqli_fetch_assoc($result2))
+        {
+        ?>
+                <option value="<?php echo($row['season_id']);?>"><?php echo($row['season_no']) ?></option>
+        <?php
+      }
+      ?>
+      </select>
+        </div>
+
+        </div>
+       
+       <div class="row" style="padding:1rem;">
+       <div class="col-lg-6 ">
+           <h3>Enter Number of episode</h3>
+       </div>
+       <div class="col-lg-6 " style="padding:0.5rem;">
+           <input type="text" name="numepi" id="episode" oninput="add()"  style="padding:0.5rem;width:100%;color:black;">
+       </div>
+   </div>
+   <?php
+    }else{
+      echo("NOT FOUND");
+    }
+    
+  }
+  
+}else{
+  echo("NOT FOUND");
+}
+}
+
+if(!empty($_POST['epii']))
+{
+  $no = $_POST['epii'];
+  for($i=1;$i<=$no;$i++)
+  {
+    ?>
+    <div style="border:1px solid white;margin-block:2rem;padding:1rem;">
+    <div class="row" style="padding:1rem;">
+            <div class="col-lg-6 ">
+                <h3> ENTER  Episode NUMBER</h3>
+            </div>
+            <div class="col-lg-6 " style="padding:0.5rem;">
+                <input type="text" name="ep<?php echo($i);?>"  style="padding:0.5rem;width:100%;color:black;" >
+            </div>
+        </div>
+        <div class="row" style="padding:1rem;">
+            <div class="col-lg-6 ">
+                <h3> ENTER Watch Link</h3>
+            </div>
+            <div class="col-lg-6 " style="padding:0.5rem;">
+                <input type="text" name="wlink<?php echo($i);?>"  style="padding:0.5rem;width:100%;color:black;" >
+            </div>
+        </div>
+        <div class="row" style="padding:1rem;">
+            <div class="col-lg-6 ">
+                <h3> ENTER Download Link</h3>
+            </div>
+            <div class="col-lg-6 " style="padding:0.5rem;">
+                <input type="text" name="dlink<?php echo($i);?>"  style="padding:0.5rem;width:100%;color:black;" >
+            </div>
+        </div>
+  </div>
+        <?php
+   
+
+  }
+}
 ?>

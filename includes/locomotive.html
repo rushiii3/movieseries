@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
+  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"> 
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <title>Be happyy</title>
+    <style>
+        body{
+            margin: 0%;
+            padding: 0%;
+        }
+        @media (max-width:768px) {
+            .box span{
+            display: inline-block;
+            font-size: 4rem;
+        }
+        #h1{
+            font-size: 3rem;
+        }
+        #h2{
+            font-size: 3rem;
+        }
+        #h3{
+            font-size: 3rem;
+        }
+        #h4{
+            font-size: 3rem;
+        }
+        #h5{
+            font-size: 3rem;
+            padding: 1rem;
+        }
+        }
+        </style>
+</head>
+<body>
+    
+<div data-scroll-container>
+    <div data-scroll-section style="height: 100vh;background-color: #F7EFE5;display: grid;">
+        <h2 data-scroll data-scroll-delay="1" data-scroll-direction="vertical" data-scroll-speed="4" style="text-align: center;font-size: 6rem;margin-top: 14rem;color: #FF0303;">Hello!</h2>
+    </div>
+    <div data-scroll-section style="height: 100vh;background-color:#40513B;display: grid;">
+        <h2 id="h1" data-scroll data-scroll-delay="1" data-scroll-direction="horizontal" data-scroll-speed="6" style="text-align: center;margin-top: 15rem;color:#FDE2F3">What's up?</h2>
+    </div>
+    <div data-scroll-section style="height: 100vh;background-color:#F5EAEA;display: grid;">
+        <h2 id="h2" data-scroll data-scroll-delay="1" data-scroll-direction="horizontal" data-scroll-speed="-10" style="text-align: left;margin-top: 5rem;color:#F16767;">How you feeling?</h2>
+        <h2 id="h2" data-scroll data-scroll-delay="1" data-scroll-direction="horizontal" data-scroll-speed="10" style="text-align: right;margin-top: 1rem;margin-bottom: 8rem;color:#F16767;">Feeling bad then scroll downn.....</h2>
+
+    </div>
+    <div data-scroll-section style="height: 100vh;background-color:#537FE7;display: grid;">
+        <h2 id="h3" data-scroll data-scroll-delay="1" data-scroll-direction="horizontal" data-scroll-speed="10" style="text-align: right;margin-top: 15rem;color:#181823">First smile 😊</h2>
+    </div>
+    <div data-scroll-section style="height: 100vh;background-color:#2E3840;display: grid;">
+        <p data-scroll data-scroll-delay="1" data-scroll-direction="horizontal" data-scroll-speed="-10" style="text-align: left;">
+            <img src="https://github.com/rushiii3/Pet-venture/blob/main/IMG_4875.jpg?raw=true"  style="height: 30rem; width:80%;margin-top: 5rem;border: 1px solid white;padding: 0.5rem;">
+        </p>
+       
+        <h2 id="h4" data-scroll data-scroll-delay="1" data-scroll-direction="horizontal" data-scroll-speed="10" style="text-align: left;margin-top: 1rem;color:#FFC3A1">Have a happyy journeyyyy!</h2>
+    </div>
+    <div data-scroll-section style="height: 100vh;background-color:#FAECD6;display: grid;">
+        <h2 id="h5" data-scroll data-scroll-delay="1" data-scroll-direction="vertical" data-scroll-speed="12" style="text-align: center;margin-top: 15rem;color:#820000;">Byee!<br><b>I love you ❤️ </b> </h2>
+    </div>
+</div>
+
+
+    <script>
+    
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector("[data-scroll-container]"),
+    smooth: true,
+    smoothMobile: true
+  });
+        </script>
+</body>
+</html>

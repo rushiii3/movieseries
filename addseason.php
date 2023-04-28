@@ -61,6 +61,22 @@
     <?php
     $showid = mysqli_real_escape_string($con,$_POST['showid']);
     $season = mysqli_real_escape_string($con,$_POST['seasonno']);
+    for($i=1;$i<=$season;$i++)
+    {
+        ${"sn$i"} = mysqli_real_escape_string($con,$_POST['sn'.$i]);
+    }
+
+for($i=1;$i<=$season;$i++)
+    {
+    $sql = "INSERT INTO seasons(show_id,season_no) VALUES('$showid','${"sn$i"}')";
+    if(mysqli_query($con,$sql))
+    {
+        echo '<script>alert("Added Successfully")</script>';
+    }
+    else{
+        echo '<script>alert("NOt Added Successfully")</script>';
+    }
+}
     ?>
     <script>
             function search()

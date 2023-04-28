@@ -15,7 +15,7 @@
   <body style="background-color: #1f2823">
   <div class="page-loader">
       <img src="https://i.pinimg.com/originals/b8/71/76/b8717641f46cdfdced2c86e984f07c11.gif" style="height: 100vh;width: 100%;">
-    </div>    
+      </div> 
     <script>
       $(window).on('load',function(){
 	setTimeout(function(){ // allowing 3 secs to fade out loader
@@ -205,5 +205,8 @@ if(mysqli_num_rows($result)>0)
     
    
   </ul>
+
+
+  
 </body>
 </html>

@@ -1,24 +1,49 @@
 <!DOCTYPE html>
 <html>
     <head>
-
-    </head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="jquery-3.6.3.min.js"></script>
+        </head>
     <body>
-        <script>
-            function hel(){
-                var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-var dateTime = date+' '+time;
-document.getElementById("demo").value=dateTime;
-            }
+            <input type="text" id="name" placeholder="namee...">
+            <input type="text" id="email" placeholder="email...">
+            <input type="text" id="amt" placeholder="amount...">
+            <button onclick="pay()">Pay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    function pay(){
+        var email = $("#email").val();
+        var amt = $("#amt").val();
+var options = {
+    "key": "rzp_test_JL6hL05K7lPkP0", // Enter the Key ID generated from the Dashboard
+    "amount": amt*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Rushi Corp",
+    "description": "Test Transaction",
+    "image": "https://content.jdmagicbox.com/comp/mumbai/k4/022pxx22.xx22.000417896699.v2k4/catalogue/rushi-corporation-andheri-west-mumbai-pharmaceutical-manufacturers-l89eir.jpg?clr=#00ff00?fit=around%7C270%3A130&crop=270%3A130%3B%2A%2C%2A",
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+    },
+    "prefill": {
+        "name": "Rushi",
+        "email": email,
+        "contact": "9000090000"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+    
+};
+var rzp1 = new Razorpay(options);
 
-        </script>
+    rzp1.open();
+    e.preventDefault();
 
-        <form >
-            <input type="text" id="demo">
-            <input type="submit" onclick="hel()">
-        </form>
+    }
+</script>
             
 
     </body>
