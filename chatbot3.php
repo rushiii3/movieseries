@@ -8,7 +8,16 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        button{
+            padding-inline:1rem;
+            border-radius:10px;
+            background-color:white;
+            border:1px solid black;
+        }
+    </style>
 </head>
 <body>
     <!-- Button trigger modal -->
@@ -64,10 +73,30 @@
                 url:'chatbot3ajax.php',
                 data:'value='+$data,
                 success:function(result){
-                        
+                    $reply = result;
+                    $('#body').append($reply); 
                 }
             })
         })
+    })
+  </script>
+  <button id="b" value="blik">
+    Click
+  </button>
+  <button id="a" value="blik">
+    Click
+  </button>
+  <button id="v" value="blik">
+    Click
+  </button>
+  <button id="e" value="blik" style="padding-inline:1rem;border-radius:10px;background-color:white;border:1px solid black;">
+    Click
+  </button>
+  <script>
+    $('button').on('click',function(){
+       
+        var id = $(this).attr('id');
+        console.log(id);
     })
   </script>
 </body>

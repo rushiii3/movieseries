@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Rejax Loader -->
+<script>
+(   
+    function(w,d,s,v,p)
+    {
+        w[v]=w[v]||{listen:function(a,b)
+            {
+                this.l[a]=b
+            },l:{}
+                };
+    w[v].app_key=p;var f=d.getElementsByTagName(s)[0],j=d.createElement(s);
+    j.async=true;j.src='https://rejax.io:3001/api/client';f.parentNode.insertBefore(j,f);
+    })(this,document,'script','Rejax','KEYWUittCSBkHjs9CudGZs9Zfw4qoYSvj1u')
+
+
+    Rejax.listen('my-channel-name', function(text) {
+
+// received text from server
+console.log(text)
+})
+    </script>
+    <!-- End Rejax Loader -->
+    <script>
+        
+    </script>
+</body>
+</html>

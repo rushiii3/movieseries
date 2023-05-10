@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Dependencies for client view and component view -->
+<script src="https://source.zoom.us/2.11.5/lib/vendor/react.min.js"></script>
+<script src="https://source.zoom.us/2.11.5/lib/vendor/react-dom.min.js"></script>
+<script src="https://source.zoom.us/2.11.5/lib/vendor/redux.min.js"></script>
+<script src="https://source.zoom.us/2.11.5/lib/vendor/redux-thunk.min.js"></script>
+<script src="https://source.zoom.us/2.11.5/lib/vendor/lodash.min.js"></script>
+
+<!-- Choose between the client view or component view: -->
+
+<!-- CDN for client view -->
+<script src="https://source.zoom.us/zoom-meeting-2.11.5.min.js"></script>
+
+<!-- CDN for component view -->
+<script src="https://source.zoom.us/zoom-meeting-embedded-2.11.5.min.js"></script>
+</head>
+<body>
+    <div id="meetingSDKElement">
+  <!-- Meeting SDK renders here when a user starts or joins a Zoom meeting -->
+</div>
+<script>
+    const client = ZoomMtgEmbedded.createClient()
+
+let meetingSDKElement = document.getElementById('meetingSDKElement')
+
+client.init({ zoomAppRoot: meetingSDKElement, language: 'en-US' })
+
+client.join({
+  sdkKey: sdkKey,
+  signature: signature, // role in SDK signature needs to be 1
+  meetingNumber: meetingNumber,
+  password: password,
+  userName: userName,
+  zak: zakToken // the host's zak token
+})
+client.join({
+  sdkKey: sdkKey,
+  signature: signature, // role in SDK signature needs to be 0
+  meetingNumber: meetingNumber,
+  password: password,
+  userName: userName
+})
+</script>
+</body>
+</html>

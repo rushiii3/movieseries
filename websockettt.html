@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+
+
+     
+        var socket = new WebSocket("ws://" + location.host + "/");
+
+socket.onopen = function(event) {
+  console.log('WebSocket connection established.');
+  alert("WebSocket connection established.");
+};
+
+socket.onmessage = function(event) {
+  console.log('Received message:', event.data);
+};
+
+socket.onclose = function(event) {
+  console.log('WebSocket connection closed.');
+};
+
+socket.onerror = function(event) {
+  console.error('WebSocket error:', event);
+};
+
+// Sending messages to the WebSocket server
+//socket.send('Hello, WebSocket server!');
+
+
+    </script>
+    
+</body>
+</html>

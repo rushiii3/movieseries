@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="jquery-3.6.3.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         </head>
     <body>
             <input type="text" id="name" placeholder="namee...">
@@ -44,7 +44,35 @@ var rzp1 = new Razorpay(options);
 
     }
 </script>
-            
-
+            <input type="text" id="pass" placeholder="enter passwor" style="height:1.5rem;"><span id="show"style="border: 1px solid black;height:1.5rem;cursor: pointer;"><i class="bi bi-eye"></i> <i class="bi bi-eye-slash"></i></span>
+            <script>
+                $('.bi-eye-slash').show();
+                $('.bi-eye').hide();
+                $('#show').on('click',function(){
+                    var passInput=$("#pass");
+                        if(passInput.attr('type')==='password')
+                            {
+                            $('.bi-eye-slash').hide();
+                            $('.bi-eye').show();
+                            passInput.attr('type','text');
+                            console.log("text");
+                        }else{
+                            $('.bi-eye-slash').show();
+                            $('.bi-eye').hide();
+                            passInput.attr('type','password');
+                            console.log("pass");
+                        }
+                })
+                
+                $('#pass').on('input',function(){
+                    /*$('.bi-eye-slash').show();
+                    $('.bi-eye').hide();
+                    $val = $('#pass').text();
+                    $('#pass').append($val);
+                    console.log($val);*/
+                    $val = $('#pass').type;
+                    console.log($val);
+                })
+            </script>
     </body>
 </html>
